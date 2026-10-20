@@ -2,9 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useCart } from "@/components/CartProvider";
 
 const links = [
+  { href: "/store", label: "Store" },
   { href: "/#fragrances", label: "Fragrances" },
   { href: "/#collections", label: "Collections" },
   { href: "/#story", label: "Our Story" },
@@ -13,6 +15,7 @@ const links = [
 
 export default function Header() {
   const { count, open, setOpen } = useCart();
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menu, setMenu] = useState(false);
   const firstLinkRef = useRef(null);
@@ -64,21 +67,29 @@ export default function Header() {
           </button>
           <nav className="desk-nav" aria-label="Primary">
             {links.slice(0, 2).map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
                 {link.label}
               </Link>
             ))}
           </nav>
         </div>
 
-        <Link href="/" className="wordmark" aria-label="NOIRÉ home">
-          NOIRÉ
+        <Link href="/" className="wordmark" aria-label="JUKAYPERFUMES home">
+          JUKAYPERFUMES
         </Link>
 
         <div className="header-side header-side-right">
           <nav className="desk-nav" aria-label="Secondary">
             {links.slice(2).map((link) => (
-              <Link key={link.href} href={link.href}>
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
                 {link.label}
               </Link>
             ))}
@@ -115,6 +126,7 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 ref={index === 0 ? firstLinkRef : undefined}
+                aria-current={pathname === link.href ? "page" : undefined}
                 onClick={() => setMenu(false)}
               >
                 {link.label}

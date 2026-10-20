@@ -5,10 +5,11 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-top">
         <div>
-          <p className="wordmark">NOIRÉ</p>
+          <p className="wordmark">JUKAYPERFUMES</p>
           <p className="footer-sign">A scent that stays.</p>
         </div>
         <nav aria-label="Footer">
+          <Link href="/store">Store</Link>
           <Link href="/#fragrances">Fragrances</Link>
           <Link href="/#collections">Collections</Link>
           <Link href="/#story">Our Story</Link>
@@ -19,7 +20,7 @@ export default function Footer() {
           <p className="footer-label">Visit — demonstration</p>
           <p>14 Glover Road, Ikoyi, Lagos</p>
           <p>
-            <a href="mailto:atelier@noire.demo">atelier@noire.demo</a>
+            <a href="mailto:atelier@jukayperfumes.demo">atelier@jukayperfumes.demo</a>
           </p>
           <p>
             <a href="tel:+23417000140">+234 1 700 0140</a>

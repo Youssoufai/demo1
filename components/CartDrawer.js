@@ -61,8 +61,8 @@ export default function CartDrawer() {
           <div className="drawer-empty">
             <p>Your bag is empty.</p>
             <p>The collection is waiting.</p>
-            <Link className="btn" href="/#fragrances" onClick={close}>
-              View fragrances
+            <Link className="btn" href="/store" onClick={close}>
+              Browse the store
             </Link>
           </div>
         ) : reviewing ? (

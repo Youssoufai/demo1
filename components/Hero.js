@@ -39,7 +39,7 @@ export default function Hero() {
         <div className="hero-tilt">
           <Photo
             src="/images/collection.jpg"
-            alt="The NOIRÉ collection: unlabelled glass perfume bottles arranged on a dark surface in hard studio light."
+            alt="The JUKAYPERFUMES collection: unlabelled glass perfume bottles arranged on a dark surface in hard studio light."
             position="center 70%"
             priority
             tone

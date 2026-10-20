@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { bottles, filters, formatPrice } from "@/lib/catalog";
 import Photo from "@/components/Photo";
 import AddButton from "@/components/AddButton";
@@ -23,7 +24,8 @@ export default function Fragrances() {
           <h2 id="fragrances-title">Four signatures.</h2>
         </div>
         <p className="band-note">
-          Extrait de parfum, 50 ml. Prices are for this demonstration.
+          Extrait de parfum, 50 ml. Prices are for this demonstration.{" "}
+          <Link href="/store">Open the store</Link> to see what is in stock.
         </p>
       </div>
 

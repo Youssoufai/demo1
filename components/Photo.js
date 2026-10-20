@@ -22,7 +22,7 @@ export default function Photo({
   if (failed) {
     return (
       <div className="photo-fallback" role="img" aria-label={alt}>
-        <span>NOIRÉ</span>
+        <span>JUKAYPERFUMES</span>
       </div>
     );
   }

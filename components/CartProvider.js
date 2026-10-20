@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useMemo, useState, useSyncExternalStore } from "react";
-import { getProduct } from "@/lib/catalog";
+import { getProduct, purchaseLimit } from "@/lib/catalog";
 
 const CartContext = createContext(null);
 const STORAGE_KEY = "noire-demo-cart";
@@ -18,16 +18,17 @@ function emit() {
 
 function sanitise(value) {
   if (!Array.isArray(value)) return EMPTY;
-  const next = value.filter(
-    (line) =>
-      line &&
-      typeof line.id === "string" &&
-      getProduct(line.id) &&
-      Number.isInteger(line.qty) &&
-      line.qty > 0 &&
-      line.qty <= 8
-  );
-  return next.length ? next.map((line) => ({ id: line.id, qty: line.qty })) : EMPTY;
+  const next = [];
+  for (const line of value) {
+    if (!line || typeof line.id !== "string" || !Number.isInteger(line.qty) || line.qty <= 0) {
+      continue;
+    }
+    const product = getProduct(line.id);
+    const limit = purchaseLimit(product);
+    if (limit <= 0) continue;
+    next.push({ id: line.id, qty: Math.min(line.qty, limit) });
+  }
+  return next.length ? next : EMPTY;
 }
 
 function getSnapshot() {
@@ -111,29 +112,32 @@ export function CartProvider({ children }) {
       subtotal,
       add(id, qty = 1) {
         const product = getProduct(id);
-        if (!product) return;
+        const limit = purchaseLimit(product);
+        if (!product || limit <= 0) return;
         const current = getSnapshot();
         const existing = current.find((line) => line.id === id);
+        if (existing && existing.qty >= limit) return;
         const next = existing
           ? current.map((line) =>
-              line.id === id ? { ...line, qty: Math.min(8, line.qty + qty) } : line
+              line.id === id ? { ...line, qty: Math.min(limit, line.qty + qty) } : line
             )
-          : [...current, { id, qty: Math.min(8, qty) }];
+          : [...current, { id, qty: Math.min(limit, qty) }];
         write(next);
         setNotice(`${product.name} added to bag.`);
       },
       setQty(id, qty) {
         const product = getProduct(id);
+        const limit = purchaseLimit(product);
         if (!product) return;
         const current = getSnapshot();
-        if (qty <= 0) {
+        if (qty <= 0 || limit <= 0) {
           write(current.filter((line) => line.id !== id));
           setNotice(`${product.name} removed from bag.`);
           return;
         }
         write(
           current.map((line) =>
-            line.id === id ? { ...line, qty: Math.min(8, qty) } : line
+            line.id === id ? { ...line, qty: Math.min(limit, qty) } : line
           )
         );
         setNotice(`${product.name} quantity updated.`);

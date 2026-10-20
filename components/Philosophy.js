@@ -14,7 +14,7 @@ export default function Philosophy() {
           <p className="eyebrow">Our story</p>
           <h2>Craft, worn quietly.</h2>
           <p>
-            NOIRÉ is a fictional maison built for this demonstration — a house
+            JUKAYPERFUMES is a fictional maison built for this demonstration — a house
             that would rather finish one extrait than launch a season of them.
             Compositions are concentrated, edited, and named for what they leave
             behind.
@@ -35,7 +35,7 @@ export default function Philosophy() {
           <div className="frame frame-tall">
             <Photo
               src="/images/incense.jpg"
-              alt="Incense smoke above dark wood, a study of materials in the NOIRÉ atelier story."
+              alt="Incense smoke above dark wood, a study of materials in the JUKAYPERFUMES atelier story."
               position="center 30%"
               sizes="(max-width: 800px) 100vw, 28vw"
             />

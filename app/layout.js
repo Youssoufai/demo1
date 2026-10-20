@@ -21,33 +21,33 @@ const sans = Outfit({
 });
 
 const description =
-  "NOIRÉ is a demonstration maison of extrait perfumes. Oud Noir, Ambre Royale, Rose Obsidienne, and Velvet Smoke — compositions meant to become a signature.";
+  "JUKAYPERFUMES is a demonstration maison of extrait perfumes. Oud Noir, Ambre Royale, Rose Obsidienne, and Velvet Smoke — compositions meant to become a signature.";
 
 export const metadata = {
-  metadataBase: new URL("https://noire.demo"),
+  metadataBase: new URL("https://jukayperfumes.demo"),
   title: {
-    default: "NOIRÉ — A Scent That Stays",
-    template: "%s — NOIRÉ",
+    default: "JUKAYPERFUMES — A Scent That Stays",
+    template: "%s — JUKAYPERFUMES",
   },
   description,
   openGraph: {
-    title: "NOIRÉ — A Scent That Stays",
+    title: "JUKAYPERFUMES — A Scent That Stays",
     description,
     type: "website",
     locale: "en_NG",
-    siteName: "NOIRÉ",
+    siteName: "JUKAYPERFUMES",
     images: [
       {
         url: "/images/collection.jpg",
         width: 2000,
         height: 1333,
-        alt: "Unlabelled glass perfume bottles in dramatic studio light for the NOIRÉ collection.",
+        alt: "Unlabelled glass perfume bottles in dramatic studio light for the JUKAYPERFUMES collection.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NOIRÉ — A Scent That Stays",
+    title: "JUKAYPERFUMES — A Scent That Stays",
     description,
     images: ["/images/collection.jpg"],
   },

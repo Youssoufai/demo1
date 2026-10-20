@@ -114,10 +114,11 @@ h3,
 }
 
 .wordmark {
-  letter-spacing: 0.32em;
-  text-indent: 0.32em;
-  font-size: 1.2rem;
+  letter-spacing: 0.08em;
+  text-indent: 0.08em;
+  font-size: clamp(0.82rem, 2.2vw, 1rem);
   line-height: 1;
+  white-space: nowrap;
 }
 
 .index {
@@ -201,6 +202,21 @@ h3,
   background: var(--ink);
   color: var(--ivory);
   border-color: var(--ink);
+}
+
+.btn:disabled,
+.add-light .btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover,
+.btn:disabled:focus-visible,
+.add-light .btn:disabled:hover,
+.add-light .btn:disabled:focus-visible {
+  background: transparent;
+  color: inherit;
+  border-color: currentColor;
 }
 
 .btn-fill {
@@ -364,7 +380,10 @@ h3,
     radial-gradient(ellipse at 50% 30%, rgba(198, 165, 106, 0.35), transparent 55%),
     #14110e;
   color: var(--gold-soft);
-  letter-spacing: 0.28em;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  text-align: center;
+  padding: 0 0.75rem;
   font-family: var(--font-display), serif;
 }
 
@@ -414,7 +433,7 @@ h3,
 
 .desk-nav {
   display: none;
-  gap: 1.4rem;
+  gap: 1rem;
 }
 
 .desk-nav a {
@@ -424,7 +443,8 @@ h3,
 }
 
 .desk-nav a:hover,
-.desk-nav a:focus-visible {
+.desk-nav a:focus-visible,
+.desk-nav a[aria-current="page"] {
   color: var(--gold-soft);
 }
 
@@ -597,10 +617,15 @@ h3,
 }
 
 .band-note {
-  max-width: 16rem;
+  max-width: 20rem;
   margin: 0;
   color: var(--muted);
   font-size: 0.95rem;
+}
+
+.band-note a {
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
 }
 
 .filters {
@@ -1209,6 +1234,127 @@ h3,
 .missing h1 {
   margin: 0;
   font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.store-hero {
+  background: var(--obsidian);
+  color: var(--ivory);
+  padding: calc(var(--header) + 2.4rem) clamp(1.25rem, 4vw, 4.5rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.store-hero h1 {
+  margin: 0;
+  max-width: 10ch;
+  font-size: clamp(3.4rem, 8vw, 6.4rem);
+}
+
+.store-lead {
+  max-width: 32rem;
+  margin: 1.1rem 0 0;
+  font-size: 1.12rem;
+  font-weight: 300;
+  color: var(--muted-light);
+}
+
+.store-shelf {
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.25rem, 4vw, 4.5rem) clamp(3.5rem, 8vw, 6rem);
+  background: var(--ivory);
+}
+
+.store-shelf h2 {
+  margin: 0;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+}
+
+.stock-summary {
+  margin: 0.7rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.store-grid {
+  display: grid;
+  gap: 2.4rem 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.store-card h3 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+}
+
+.store-copy {
+  padding-top: 1rem;
+}
+
+.stock-badge {
+  position: absolute;
+  z-index: 2;
+  top: 0.75rem;
+  left: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  background: var(--ivory);
+  color: var(--ink);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.stock-badge.is-out {
+  background: var(--obsidian);
+  color: var(--muted-light);
+}
+
+.store-card.is-out .frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(12, 11, 9, 0.42);
+  pointer-events: none;
+}
+
+.stock-line {
+  margin: 0.75rem 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.store-card.is-out .stock-line {
+  color: var(--muted);
+}
+
+.store-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15rem 0.9rem;
+}
+
+.store-qty {
+  flex-basis: 100%;
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@media (min-width: 700px) {
+  .store-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1100px) {
+  .store-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }
 
 #fragrances,
