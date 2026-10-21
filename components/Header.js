@@ -79,7 +79,7 @@ export default function Header() {
         </div>
 
         <Link href="/" className="wordmark" aria-label="JUKAYPERFUMES home">
-          JUKAYPERFUMES
+          DEMO SCENTS
         </Link>
 
         <div className="header-side header-side-right">
