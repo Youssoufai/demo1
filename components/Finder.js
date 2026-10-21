@@ -4,7 +4,7 @@ import { useState } from "react";
 import { formatPrice, profiles, recommend } from "@/lib/catalog";
 import Photo from "@/components/Photo";
 import AddButton from "@/components/AddButton";
-
+// change
 export default function Finder() {
   const [selected, setSelected] = useState(null);
   const match = selected ? recommend(selected) : null;
