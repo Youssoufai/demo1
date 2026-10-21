@@ -26,16 +26,16 @@ const description =
 export const metadata = {
   metadataBase: new URL("https://jukayperfumes.demo"),
   title: {
-    default: "JUKAYPERFUMES — A Scent That Stays",
-    template: "%s — JUKAYPERFUMES",
+    default: "DEMO scents",
+    template: "%s — DEMO scents",
   },
   description,
   openGraph: {
-    title: "JUKAYPERFUMES — A Scent That Stays",
+    title: "DEMO scents",
     description,
     type: "website",
     locale: "en_NG",
-    siteName: "JUKAYPERFUMES",
+    siteName: "DEMO scents",
     images: [
       {
         url: "/images/collection.jpg",
@@ -47,7 +47,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "JUKAYPERFUMES — A Scent That Stays",
+    title: "DEMO scents",
     description,
     images: ["/images/collection.jpg"],
   },

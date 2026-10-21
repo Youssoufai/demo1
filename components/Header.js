@@ -78,8 +78,8 @@ export default function Header() {
           </nav>
         </div>
 
-        <Link href="/" className="wordmark" aria-label="JUKAYPERFUMES home">
-          DEMO SCENTS
+        <Link href="/" className="wordmark" aria-label="DEMO scents home">
+          DEMO scents
         </Link>
 
         <div className="header-side header-side-right">

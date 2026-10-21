@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-top">
         <div>
-          <p className="wordmark">DEMO SCENTS</p>
+          <p className="wordmark">DEMO scents</p>
           <p className="footer-sign">A scent that stays.</p>
         </div>
         <nav aria-label="Footer">
